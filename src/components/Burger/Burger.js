@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import classes from './Burger.css';
-import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
+import classes from "./Burger.css";
+import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
-const buger = (props) => {
-    return (
-        <div className={classes.Burger}>
-            <BurgerIngredient type="bread-top"></BurgerIngredient>
-            <BurgerIngredient type="cheese"></BurgerIngredient>
-            <BurgerIngredient type="meat"></BurgerIngredient>
-            <BurgerIngredient type="bread-bottom"></BurgerIngredient>
-        </div>
-    );
+const buger = props => {
+  return (
+    <div className={classes.Burger}>
+      <BurgerIngredient type="bread-top" />
+      <BurgerIngredient type="cheese" />
+      <BurgerIngredient type="meat" />
+      <BurgerIngredient type="bread-bottom" />
+    </div>
+  );
 };
 
 export default buger;
