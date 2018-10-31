@@ -7,6 +7,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -27,7 +28,7 @@ class BurgerBuilder extends Component {
         purchasable: false,
         purchasing: false,
         loading: false
-    }
+    };
 
     updatePurchaseState(ingredients) {
         const sum = Object.keys(ingredients)
@@ -36,7 +37,7 @@ class BurgerBuilder extends Component {
             })
             .reduce((sum, el) => {
                 return sum + el;
-            }, 0)
+            }, 0);
 
         this.setState({ purchasable: sum > 0 });
     }
@@ -55,7 +56,7 @@ class BurgerBuilder extends Component {
         this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
         this.updatePurchaseState(updatedIngredients);
 
-    }
+    };
 
     removeIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
@@ -75,14 +76,14 @@ class BurgerBuilder extends Component {
 
         this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
         this.updatePurchaseState(updatedIngredients);
-    }
+    };
 
     purchaseHandler = () => {
         this.setState({ purchasing: true })
-    }
+    };
 
     purchaseContinueHandler = () => {
-        this.setState({ loading: true })
+        this.setState({ loading: true });
 
         const order = {
             ingredients: this.state.ingredients,
@@ -97,7 +98,7 @@ class BurgerBuilder extends Component {
                 email: 'power@max.com'
             },
             deliveryMethod: 'fastest'
-        }
+        };
 
         axios.post('/orders.json', order)
             .then(response => {
@@ -106,11 +107,11 @@ class BurgerBuilder extends Component {
             .catch(error => {
                 this.setState({ loading: false, purchasing: false });
             });
-    }
+    };
 
     purchaseCancelHandler = () => {
         this.setState({ purchasing: false })
-    }
+    };
 
     render() {
         const disableInfo = {
@@ -150,4 +151,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
