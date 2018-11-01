@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
@@ -7,17 +7,17 @@ import Checkout from './containers/Checkout/Checkout';
 
 
 class App extends Component {
-  render() {
-    return (
-      <Layout>
-        <Switch>
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/" component={BurgerBuilder} exact/>
-        </Switch>
+    render() {
+        return (
+            <Layout>
+                <Switch>
+                    <Route path="/checkout" component={Checkout}/>
+                    <Route path="/" component={BurgerBuilder} exact/>
+                </Switch>
 
-      </Layout>
-    );
-  }
+            </Layout>
+        );
+    }
 }
 
 export default App;

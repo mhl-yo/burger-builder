@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary'
 import Button from '../UI/Button/Button';
@@ -13,7 +13,7 @@ class OrderSummary extends Component {
             .map(igKey => {
                 return (
                     <li key={igKey}>
-                        <span style={{ textTransform: 'capitalize' }}>{igKey}: {this.props.ingredients[igKey]}</span>
+                        <span style={{textTransform: 'capitalize'}}>{igKey}: {this.props.ingredients[igKey]}</span>
                     </li>
                 )
             })
