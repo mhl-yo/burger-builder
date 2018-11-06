@@ -7,10 +7,10 @@ import {createStore} from 'redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from './store/reducer';
+import burgerBuilderReducer from './store/reducers/burgerBuilderReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(reducer, composeEnhancers);
+const store = createStore(burgerBuilderReducer, composeEnhancers);
 const app = (
     <Provider store={store}>
         <BrowserRouter>
