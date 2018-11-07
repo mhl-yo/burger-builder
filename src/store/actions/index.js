@@ -3,5 +3,5 @@ export {
     removeIngredient,
     initIngredients
 } from './burgerBuilderActions';
-export {} from './orderActions';
+export {purchaseBurger} from './orderActions';
 
